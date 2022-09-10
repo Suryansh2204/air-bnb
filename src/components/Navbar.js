@@ -9,6 +9,8 @@ export default function Navbar(){
 }
 
 const Wrapper=styled.div`
+position: sticky;
+top: 0;
 width: 100%;
 height: 70px;
 background: #FFFFFF;

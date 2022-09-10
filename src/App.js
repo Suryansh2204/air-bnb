@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Card from "./components/Card";
 import GrpImg from "./components/GrpImg";
 import Navbar from "./components/Navbar";
 import TextAr from "./components/TextAr";
@@ -9,6 +10,7 @@ export default function App() {
       <Navbar/>
       <GrpImg/>
       <TextAr/>
+      <Card/>
     </Wrapper>
   );
 }
