@@ -1,18 +1,25 @@
 import styled from "styled-components";
-export default function Card() {
+export default function Card(props) {
+  let statusDisp
+  if(props.openSpots===0){
+    statusDisp="Sold Out"
+  }
+  else if(props.location==="Online"){
+    statusDisp="Online"
+  }
   return (
     <Wrapper>
-      <Image src="imgs/image 12.png" />
-      <Status></Status>
+      <Image src={`imgs/${props.img}`} />
+      {statusDisp && <Status>{statusDisp}</Status>}
       <Text>
         <img src="imgs/Star 1.png" alt="" />
         <div className="l1">
-          <span>5.0 </span>
-          <span className="s1">(6) • </span>
-          <span className="s1">USA</span>
+          <span>{props.rating} </span>
+          <span className="s1">({props.reviewCount}) • </span>
+          <span className="s1">{props.country}</span>
         </div>
-        <p>Life Lessons with Katie Zaferes</p>
-        <b>From $136 </b>
+        <p>{props.title}</p>
+        <b>From $ {props.price}</b>
         <span> /person</span>
       </Text>
     </Wrapper>
@@ -37,11 +44,12 @@ const Image = styled.img`
   `;
 
 const Status = styled.div`
+  background-color: white;
+  border-radius: 5px;
   position: absolute;
-  width: 61px;
-  height: 20px;
-  left: 43px;
-  top: 527px;
+  margin-top:10px;
+  margin-right: 100px;
+  padding: 0px 10px;
   `;
 
 const Text = styled.div`
